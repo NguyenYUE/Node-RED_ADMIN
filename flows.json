@@ -30,13 +30,13 @@
             "32b4a853c20b602f",
             "c41c3815148368e4",
             "dd8bfaf8607aca8e",
-            "4475a9d5618227ea",
-            "b22022f71f9b961a"
+            "b22022f71f9b961a",
+            "token_checker"
         ],
         "x": 54,
         "y": 119,
         "w": 872,
-        "h": 582
+        "h": 602
     },
     {
         "id": "4a9fc846b062bec6",
@@ -248,8 +248,8 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 230,
-        "y": 440,
+        "x": 210,
+        "y": 420,
         "wires": [
             [
                 "f598fac0a57e77d6",
@@ -365,23 +365,6 @@
         ]
     },
     {
-        "id": "4475a9d5618227ea",
-        "type": "function",
-        "z": "0102ef3a5e2d0b80",
-        "g": "1c3997bc1114fe52",
-        "name": "Kiểm tra token",
-        "func": "const data = JSON.parse(msg.payload);\n\n// Kiểm tra nếu có token mới\nif (data.token) {\n    const currentToken = flow.get(\"currentToken\");\n    const tokenTimestamp = flow.get(\"tokenTimestamp\");\n    const now = new Date().getTime();\n\n    const threeMinutes = 10 * 60 * 1000;\n\n    // Nếu chưa có token hoặc token đã hết hạn hoặc token khác thì cập nhật mới\n    if (!currentToken || (now - tokenTimestamp > threeMinutes) || data.token !== currentToken) {\n        flow.set(\"currentToken\", data.token);\n        flow.set(\"tokenTimestamp\", now);\n        flow.set(\"allow\", true);\n    } else {\n        // Token hợp lệ và còn hiệu lực\n        flow.set(\"allow\", true);\n    }\n} else {\n    flow.set(\"allow\", false);\n}\n\nreturn null;\n",
-        "outputs": 0,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 660,
-        "wires": []
-    },
-    {
         "id": "dd8bfaf8607aca8e",
         "type": "mqtt in",
         "z": "0102ef3a5e2d0b80",
@@ -394,11 +377,11 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 310,
-        "y": 660,
+        "x": 350,
+        "y": 680,
         "wires": [
             [
-                "4475a9d5618227ea"
+                "token_checker"
             ]
         ]
     },
@@ -735,8 +718,8 @@
         "payloadType": "json",
         "topic": "",
         "topicType": "str",
-        "x": 2040,
-        "y": 80,
+        "x": 2060,
+        "y": 120,
         "wires": [
             [
                 "ee2daf0403a325bc"
@@ -749,7 +732,7 @@
         "z": "0102ef3a5e2d0b80",
         "name": "",
         "group": "ed8f5c0910ea904a",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -763,8 +746,8 @@
         "payloadType": "json",
         "topic": "",
         "topicType": "str",
-        "x": 2030,
-        "y": 180,
+        "x": 2050,
+        "y": 200,
         "wires": [
             [
                 "ee2daf0403a325bc"
@@ -777,7 +760,7 @@
         "z": "0102ef3a5e2d0b80",
         "name": "",
         "group": "ed8f5c0910ea904a",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -791,8 +774,8 @@
         "payloadType": "json",
         "topic": "",
         "topicType": "str",
-        "x": 2040,
-        "y": 300,
+        "x": 2060,
+        "y": 280,
         "wires": [
             [
                 "ee2daf0403a325bc"
@@ -1075,6 +1058,297 @@
         ]
     },
     {
+        "id": "token_checker",
+        "type": "function",
+        "z": "0102ef3a5e2d0b80",
+        "g": "1c3997bc1114fe52",
+        "name": "Kiểm tra token",
+        "func": "// Parse token\nconst data = JSON.parse(msg.payload);\n\nconst currentToken = flow.get(\"currentToken\");\nconst tokenTimestamp = flow.get(\"tokenTimestamp\");\nconst now = new Date().getTime();\nconst threeMinutes = 10 * 60 * 1000;\n\nif (data.token) {\n    if (!currentToken || (now - tokenTimestamp > threeMinutes) || data.token !== currentToken) {\n        flow.set(\"currentToken\", data.token);\n        flow.set(\"tokenTimestamp\", now);\n        flow.set(\"allow\", true);\n    } else {\n        flow.set(\"allow\", true);\n    }\n} else {\n    flow.set(\"allow\", false);\n}\n\nreturn null;",
+        "outputs": 0,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "check_interval",
+        "type": "inject",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Check token mỗi 10s",
+        "props": [],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 270,
+        "y": 1000,
+        "wires": [
+            [
+                "token_valid_checker"
+            ]
+        ]
+    },
+    {
+        "id": "token_valid_checker",
+        "type": "function",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Kiểm tra hiệu lực",
+        "func": "const tokenTimestamp = flow.get(\"tokenTimestamp\") || 0;\nconst now = new Date().getTime();\nconst threeMinutes = 10 * 60 * 1000;\n\nif (now - tokenTimestamp > threeMinutes) {\n    flow.set(\"allow\", false);\n    return { payload: \"Hết quyền truy cập, vui lòng đăng nhập lại\" };\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1000,
+        "wires": [
+            [
+                "ui_notify",
+                "7e233b7924eb3376"
+            ]
+        ]
+    },
+    {
+        "id": "ui_notify",
+        "type": "ui_toast",
+        "z": "0102ef3a5e2d0b80",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Thông báo UI",
+        "x": 750,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "7e233b7924eb3376",
+        "type": "debug",
+        "z": "0102ef3a5e2d0b80",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "9b2bfeb103a0616c",
+        "type": "ui_button",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Gửi MQTT",
+        "group": "19b13f6f4596a6de",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Thoát",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "send",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 2010,
+        "y": 440,
+        "wires": [
+            [
+                "a4b59dfee4e7666a"
+            ]
+        ]
+    },
+    {
+        "id": "a4b59dfee4e7666a",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Set redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "redirect",
+                "tot": "str"
+            }
+        ],
+        "x": 2220,
+        "y": 420,
+        "wires": [
+            [
+                "67712cfd66ac5721",
+                "1c5c66c4f01e2b0f"
+            ]
+        ]
+    },
+    {
+        "id": "64b4d1920fc579e3",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Xóa redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "idle",
+                "tot": "str"
+            }
+        ],
+        "x": 2380,
+        "y": 520,
+        "wires": [
+            [
+                "1c5c66c4f01e2b0f"
+            ]
+        ]
+    },
+    {
+        "id": "67712cfd66ac5721",
+        "type": "delay",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Delay xóa redirect",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "",
+        "randomLast": "",
+        "randomUnits": "seconds",
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2440,
+        "y": 420,
+        "wires": [
+            [
+                "64b4d1920fc579e3"
+            ]
+        ]
+    },
+    {
+        "id": "1c5c66c4f01e2b0f",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "group": "ed8f5c0910ea904a",
+        "name": "Thông báo & Chuyển trang",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://cisat.hcmute.edu.vn/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 2760,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1f2b08988e0e9c7",
+        "type": "inject",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Lặp mỗi giây",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 360,
+        "y": 780,
+        "wires": [
+            [
+                "71e2085d73dddf3e"
+            ]
+        ]
+    },
+    {
+        "id": "71e2085d73dddf3e",
+        "type": "function",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Lấy giờ Việt Nam",
+        "func": "let now = new Date();\n\n// Cộng thêm 7 tiếng để ra giờ Việt Nam\nnow.setHours(now.getHours() + 7);\n\nlet gio = now.getHours().toString().padStart(2, '0');\nlet phut = now.getMinutes().toString().padStart(2, '0');\nlet giay = now.getSeconds().toString().padStart(2, '0');\n\nlet ngay = now.getDate().toString().padStart(2, '0');\nlet thang = (now.getMonth() + 1).toString().padStart(2, '0');\nlet nam = now.getFullYear();\n\nmsg.payload = `🕒 ${gio}:${phut}:${giay} | 📅 ${ngay}/${thang}/${nam}`;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 780,
+        "wires": [
+            [
+                "e9b4d6cd28ed2cb2"
+            ]
+        ]
+    },
+    {
+        "id": "e9b4d6cd28ed2cb2",
+        "type": "ui_text",
+        "z": "0102ef3a5e2d0b80",
+        "group": "19b13f6f4596a6de",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "name": "Hiển thị thời gian",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 750,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "f00e6aca2617c28f",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "group": "19b13f6f4596a6de",
+        "name": "Title MakerSpace",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align: center; font-size: 24px; font-weight: bold; color: #007bff;\">\n  MakerSpace\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 770,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "968ffbf036800c3e",
         "type": "ui_spacer",
         "z": "0102ef3a5e2d0b80",
@@ -1140,9 +1414,9 @@
     {
         "id": "ed8f5c0910ea904a",
         "type": "ui_group",
-        "name": "Account",
+        "name": "                                 Account",
         "tab": "4a32f4a650a2804b",
-        "order": 1,
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -1160,11 +1434,22 @@
         "className": ""
     },
     {
+        "id": "19b13f6f4596a6de",
+        "type": "ui_group",
+        "name": "Vui lòng thoát sau khi sử dụng ",
+        "tab": "4a32f4a650a2804b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "edff4ca80b5a4d7b",
         "type": "ui_tab",
         "name": "Tạo tài khoản",
         "icon": "account_circle",
-        "order": 2,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -1173,7 +1458,7 @@
         "type": "ui_tab",
         "name": "Đổi mật khẩu",
         "icon": "dashboard",
-        "order": 3,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -1182,7 +1467,7 @@
         "type": "ui_tab",
         "name": "Admin",
         "icon": "dashboard",
-        "order": 1,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -1191,7 +1476,7 @@
         "type": "ui_tab",
         "name": "Xóa tài khoản",
         "icon": "dashboard",
-        "order": 4,
+        "order": 5,
         "disabled": false,
         "hidden": false
     }
