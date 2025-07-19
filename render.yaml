@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: node-red
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node-red -s settings.js
+    envVars:
+      - key: NODE_RED_SECRET
+        value: my-nodered-secret-key-123

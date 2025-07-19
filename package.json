@@ -1,0 +1,14 @@
+
+{
+  "name": "node-red-on-render",
+  "version": "1.0.0",
+  "description": "Deploy Node-RED on Render.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/node-red/red.js -s .node-red/settings.js"
+  },
+  "dependencies": {
+    "node-red": "^3.1.0",
+    "node-red-dashboard": "^3.5.0"
+  }
+}
