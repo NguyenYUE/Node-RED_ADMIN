@@ -31,12 +31,18 @@
             "c41c3815148368e4",
             "dd8bfaf8607aca8e",
             "b22022f71f9b961a",
+            "8ef3be8e6df25575",
+            "fcca74a66e632ec0",
+            "66645281c43cf462",
+            "a00e0d7d62140f45",
+            "7c00cfabe0667c3e",
+            "a018602eb55719bc",
             "token_checker"
         ],
         "x": 54,
         "y": 119,
-        "w": 872,
-        "h": 602
+        "w": 952,
+        "h": 642
     },
     {
         "id": "4a9fc846b062bec6",
@@ -60,12 +66,18 @@
             "d44e18a08fc859e3",
             "edc8883e35649902",
             "cd4063a2a8ee8f2b",
-            "a340bc20639d2f32"
+            "a340bc20639d2f32",
+            "e83afa64a7a3b335",
+            "ee2b6ea7a8adc907",
+            "1e97a0cbc2752776",
+            "4c4ea1978f265fa2",
+            "233cb7cc4eb9ed27",
+            "db27bd5b1c0a8feb"
         ],
         "x": 1034,
         "y": 139,
-        "w": 832,
-        "h": 462
+        "w": 1012,
+        "h": 542
     },
     {
         "id": "9ccd4a726342b2c0",
@@ -88,12 +100,18 @@
             "7103ca146bb55339",
             "5cb30132e0f27f14",
             "f508612254f07ec3",
-            "f217465db3dd5d36"
+            "f217465db3dd5d36",
+            "ff5033eb0133dce5",
+            "48c030cd73217350",
+            "9bacd5d0a09f3a44",
+            "bb370f794194666a",
+            "8e171a7fa3baa543",
+            "e78da61507736e43"
         ],
-        "x": 1014,
+        "x": 994,
         "y": 739,
-        "w": 812,
-        "h": 442
+        "w": 952,
+        "h": 562
     },
     {
         "id": "bb678e3b3cd3cd99",
@@ -377,8 +395,8 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 350,
-        "y": 680,
+        "x": 330,
+        "y": 700,
         "wires": [
             [
                 "token_checker"
@@ -828,7 +846,7 @@
         "g": "9ccd4a726342b2c0",
         "name": "login",
         "group": "058eb6e0ea94ca5f",
-        "order": 3,
+        "order": 2,
         "width": "6",
         "height": "1",
         "passthru": false,
@@ -1006,8 +1024,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1240,
-        "y": 1140,
+        "x": 1270,
+        "y": 1100,
         "wires": [
             [
                 "f508612254f07ec3"
@@ -1027,8 +1045,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 1140,
+        "x": 1450,
+        "y": 1100,
         "wires": [
             [
                 "8410279c1c0e807c"
@@ -1056,23 +1074,6 @@
             ],
             []
         ]
-    },
-    {
-        "id": "token_checker",
-        "type": "function",
-        "z": "0102ef3a5e2d0b80",
-        "g": "1c3997bc1114fe52",
-        "name": "Kiểm tra token",
-        "func": "// Parse token\nconst data = JSON.parse(msg.payload);\n\nconst currentToken = flow.get(\"currentToken\");\nconst tokenTimestamp = flow.get(\"tokenTimestamp\");\nconst now = new Date().getTime();\nconst threeMinutes = 10 * 60 * 1000;\n\nif (data.token) {\n    if (!currentToken || (now - tokenTimestamp > threeMinutes) || data.token !== currentToken) {\n        flow.set(\"currentToken\", data.token);\n        flow.set(\"tokenTimestamp\", now);\n        flow.set(\"allow\", true);\n    } else {\n        flow.set(\"allow\", true);\n    }\n} else {\n    flow.set(\"allow\", false);\n}\n\nreturn null;",
-        "outputs": 0,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 680,
-        "wires": []
     },
     {
         "id": "check_interval",
@@ -1278,8 +1279,8 @@
         "once": true,
         "onceDelay": "0.1",
         "topic": "",
-        "x": 360,
-        "y": 780,
+        "x": 320,
+        "y": 800,
         "wires": [
             [
                 "71e2085d73dddf3e"
@@ -1298,8 +1299,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 780,
+        "x": 510,
+        "y": 820,
         "wires": [
             [
                 "e9b4d6cd28ed2cb2"
@@ -1349,6 +1350,458 @@
         ]
     },
     {
+        "id": "ff5033eb0133dce5",
+        "type": "ui_button",
+        "z": "0102ef3a5e2d0b80",
+        "g": "9ccd4a726342b2c0",
+        "name": "Gửi MQTT",
+        "group": "789242b56406cd71",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Thoát",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "send",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 1090,
+        "y": 1220,
+        "wires": [
+            [
+                "48c030cd73217350"
+            ]
+        ]
+    },
+    {
+        "id": "48c030cd73217350",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "g": "9ccd4a726342b2c0",
+        "name": "Set redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "redirect",
+                "tot": "str"
+            }
+        ],
+        "x": 1270,
+        "y": 1240,
+        "wires": [
+            [
+                "bb370f794194666a",
+                "8e171a7fa3baa543"
+            ]
+        ]
+    },
+    {
+        "id": "9bacd5d0a09f3a44",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "g": "9ccd4a726342b2c0",
+        "name": "Xóa redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "idle",
+                "tot": "str"
+            }
+        ],
+        "x": 1460,
+        "y": 1260,
+        "wires": [
+            [
+                "8e171a7fa3baa543"
+            ]
+        ]
+    },
+    {
+        "id": "bb370f794194666a",
+        "type": "delay",
+        "z": "0102ef3a5e2d0b80",
+        "g": "9ccd4a726342b2c0",
+        "name": "Delay xóa redirect",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "",
+        "randomLast": "",
+        "randomUnits": "seconds",
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1550,
+        "y": 1200,
+        "wires": [
+            [
+                "9bacd5d0a09f3a44"
+            ]
+        ]
+    },
+    {
+        "id": "8e171a7fa3baa543",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "g": "9ccd4a726342b2c0",
+        "group": "058eb6e0ea94ca5f",
+        "name": "Thông báo & Chuyển trang",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://cisat.hcmute.edu.vn/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1800,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e78da61507736e43",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "g": "9ccd4a726342b2c0",
+        "group": "789242b56406cd71",
+        "name": "Title MakerSpace",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align: center; font-size: 24px; font-weight: bold; color: #007bff;\">\n  MakerSpace\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1790,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ef3be8e6df25575",
+        "type": "ui_button",
+        "z": "0102ef3a5e2d0b80",
+        "g": "1c3997bc1114fe52",
+        "name": "Gửi MQTT",
+        "group": "69b1e978f95a8bde",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Thoát",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "send",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 190,
+        "y": 620,
+        "wires": [
+            [
+                "fcca74a66e632ec0"
+            ]
+        ]
+    },
+    {
+        "id": "fcca74a66e632ec0",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "g": "1c3997bc1114fe52",
+        "name": "Set redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "redirect",
+                "tot": "str"
+            }
+        ],
+        "x": 370,
+        "y": 640,
+        "wires": [
+            [
+                "a00e0d7d62140f45",
+                "7c00cfabe0667c3e"
+            ]
+        ]
+    },
+    {
+        "id": "66645281c43cf462",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "g": "1c3997bc1114fe52",
+        "name": "Xóa redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "idle",
+                "tot": "str"
+            }
+        ],
+        "x": 560,
+        "y": 660,
+        "wires": [
+            [
+                "7c00cfabe0667c3e"
+            ]
+        ]
+    },
+    {
+        "id": "a00e0d7d62140f45",
+        "type": "delay",
+        "z": "0102ef3a5e2d0b80",
+        "g": "1c3997bc1114fe52",
+        "name": "Delay xóa redirect",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "",
+        "randomLast": "",
+        "randomUnits": "seconds",
+        "allowrate": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 600,
+        "wires": [
+            [
+                "66645281c43cf462"
+            ]
+        ]
+    },
+    {
+        "id": "7c00cfabe0667c3e",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "g": "1c3997bc1114fe52",
+        "group": "1ee8b7c65473f833",
+        "name": "Thông báo & Chuyển trang",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://cisat.hcmute.edu.vn/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 860,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a018602eb55719bc",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "g": "1c3997bc1114fe52",
+        "group": "69b1e978f95a8bde",
+        "name": "Title MakerSpace",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align: center; font-size: 24px; font-weight: bold; color: #007bff;\">\n  MakerSpace\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 890,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "token_checker",
+        "type": "function",
+        "z": "0102ef3a5e2d0b80",
+        "g": "1c3997bc1114fe52",
+        "name": "Kiểm tra token",
+        "func": "// Parse token\nconst data = JSON.parse(msg.payload);\n\nconst currentToken = flow.get(\"currentToken\");\nconst tokenTimestamp = flow.get(\"tokenTimestamp\");\nconst now = new Date().getTime();\nconst threeMinutes = 10 * 60 * 1000;\n\nif (data.token) {\n    if (!currentToken || (now - tokenTimestamp > threeMinutes) || data.token !== currentToken) {\n        flow.set(\"currentToken\", data.token);\n        flow.set(\"tokenTimestamp\", now);\n        flow.set(\"allow\", true);\n    } else {\n        flow.set(\"allow\", true);\n    }\n} else {\n    flow.set(\"allow\", false);\n}\n\nreturn null;",
+        "outputs": 0,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "e83afa64a7a3b335",
+        "type": "ui_button",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "name": "Gửi MQTT",
+        "group": "8aea3cf68df53597",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Thoát",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "send",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 1190,
+        "y": 600,
+        "wires": [
+            [
+                "ee2b6ea7a8adc907"
+            ]
+        ]
+    },
+    {
+        "id": "ee2b6ea7a8adc907",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "name": "Set redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "redirect",
+                "tot": "str"
+            }
+        ],
+        "x": 1370,
+        "y": 620,
+        "wires": [
+            [
+                "4c4ea1978f265fa2",
+                "233cb7cc4eb9ed27"
+            ]
+        ]
+    },
+    {
+        "id": "1e97a0cbc2752776",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "name": "Xóa redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "idle",
+                "tot": "str"
+            }
+        ],
+        "x": 1560,
+        "y": 640,
+        "wires": [
+            [
+                "233cb7cc4eb9ed27"
+            ]
+        ]
+    },
+    {
+        "id": "4c4ea1978f265fa2",
+        "type": "delay",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "name": "Delay xóa redirect",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "",
+        "randomLast": "",
+        "randomUnits": "seconds",
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1650,
+        "y": 580,
+        "wires": [
+            [
+                "1e97a0cbc2752776"
+            ]
+        ]
+    },
+    {
+        "id": "233cb7cc4eb9ed27",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "group": "e87352f38a248268",
+        "name": "Thông báo & Chuyển trang",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://cisat.hcmute.edu.vn/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1900,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "db27bd5b1c0a8feb",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "group": "8aea3cf68df53597",
+        "name": "Title MakerSpace",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align: center; font-size: 24px; font-weight: bold; color: #007bff;\">\n  MakerSpace\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1890,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "968ffbf036800c3e",
         "type": "ui_spacer",
         "z": "0102ef3a5e2d0b80",
@@ -1363,7 +1816,7 @@
         "type": "ui_group",
         "name": "Tạo tài khoản ",
         "tab": "edff4ca80b5a4d7b",
-        "order": 1,
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -1405,7 +1858,7 @@
         "type": "ui_group",
         "name": "Đổi mật khẩu",
         "tab": "437a732ccfa6e123",
-        "order": 1,
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -1427,7 +1880,7 @@
         "type": "ui_group",
         "name": "Xóa tài khoản",
         "tab": "4e4dadd0f8b7f913",
-        "order": 1,
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -1438,6 +1891,39 @@
         "type": "ui_group",
         "name": "Vui lòng thoát sau khi sử dụng ",
         "tab": "4a32f4a650a2804b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "789242b56406cd71",
+        "type": "ui_group",
+        "name": "Vui lòng thoát sau khi sử dụng ",
+        "tab": "4e4dadd0f8b7f913",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "69b1e978f95a8bde",
+        "type": "ui_group",
+        "name": "Vui lòng thoát sau khi sử dụng ",
+        "tab": "edff4ca80b5a4d7b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8aea3cf68df53597",
+        "type": "ui_group",
+        "name": "Vui lòng thoát sau khi sử dụng ",
+        "tab": "437a732ccfa6e123",
         "order": 1,
         "disp": true,
         "width": "6",
