@@ -38,7 +38,6 @@
             "7c00cfabe0667c3e",
             "a018602eb55719bc",
             "token_checker",
-            "7c10bb54613c2de2",
             "894e6597c8c545ca",
             "e69f5788958d2ebd"
         ],
@@ -279,8 +278,7 @@
         "wires": [
             [
                 "f598fac0a57e77d6",
-                "32b4a853c20b602f",
-                "7c10bb54613c2de2"
+                "32b4a853c20b602f"
             ]
         ]
     },
@@ -290,10 +288,10 @@
         "z": "0102ef3a5e2d0b80",
         "g": "1c3997bc1114fe52",
         "name": "Xử lý kết quả",
-        "func": "if (msg.payload.register === true) {\n    msg.payload = \"Tạo thành công\";\n    \n    return [msg, null];\n",
+        "func": "if (msg.payload.register === true) {\n    msg.payload = \"Đăng kí thành công\";\n    return [msg, null];  // tiếp tục luồng xử lý (output 1)\n} else {\n    msg.payload = \"Sai tài khoản hoặc mật khẩu!\";\n    return [null, msg];  // kết thúc hoặc báo lỗi (output 2)\n}\n",
         "outputs": 2,
         "timeout": "",
-        "noerr": 1,
+        "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
@@ -303,7 +301,9 @@
             [
                 "31397d069c977732"
             ],
-            []
+            [
+                "c4e572353aac2eab"
+            ]
         ]
     },
     {
@@ -352,7 +352,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "1c3997bc1114fe52",
         "name": "function 1",
-        "func": "if (msg.payload.register === true) {\n    msg.payload = \"Tắt đèn thành công\";\n    return [msg, null];  // tiếp tục luồng xử lý (output 1)\n} else {\n    msg.payload = \"Sai tài khoản hoặc mật khẩu!\";\n    return [null, msg];  // kết thúc hoặc báo lỗi (output 2)\n}\n",
+        "func": "if (msg.payload.register === true) {\n    msg.payload = \"Đăng kí thành công\";\n    return [msg, null];  // tiếp tục luồng xử lý (output 1)\n} else {\n    msg.payload = \"Sai tài khoản hoặc mật khẩu!\";\n    return [null, msg];  // kết thúc hoặc báo lỗi (output 2)\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1825,27 +1825,6 @@
         "x": 1720,
         "y": 220,
         "wires": []
-    },
-    {
-        "id": "7c10bb54613c2de2",
-        "type": "function",
-        "z": "0102ef3a5e2d0b80",
-        "g": "1c3997bc1114fe52",
-        "name": "function 171",
-        "func": "if (msg.payload.register === false) {\n    msg.payload = \"Tắt đèn thành công\";\n    return [msg, null];  // tiếp tục luồng xử lý (output 1)\n}\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 360,
-        "wires": [
-            [
-                "c4e572353aac2eab"
-            ]
-        ]
     },
     {
         "id": "894e6597c8c545ca",
