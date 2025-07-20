@@ -37,7 +37,8 @@
             "a00e0d7d62140f45",
             "7c00cfabe0667c3e",
             "a018602eb55719bc",
-            "token_checker"
+            "token_checker",
+            "7c10bb54613c2de2"
         ],
         "x": 54,
         "y": 119,
@@ -72,7 +73,8 @@
             "1e97a0cbc2752776",
             "4c4ea1978f265fa2",
             "233cb7cc4eb9ed27",
-            "db27bd5b1c0a8feb"
+            "db27bd5b1c0a8feb",
+            "02d2b0f2fcc2fc69"
         ],
         "x": 1034,
         "y": 139,
@@ -178,7 +180,7 @@
         "width": "6",
         "height": "1",
         "passthru": false,
-        "label": "Tạo ",
+        "label": "Đăng kí",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -271,7 +273,8 @@
         "wires": [
             [
                 "f598fac0a57e77d6",
-                "32b4a853c20b602f"
+                "32b4a853c20b602f",
+                "7c10bb54613c2de2"
             ]
         ]
     },
@@ -281,10 +284,10 @@
         "z": "0102ef3a5e2d0b80",
         "g": "1c3997bc1114fe52",
         "name": "Xử lý kết quả",
-        "func": "if (msg.payload.register === true) {\n    msg.payload = \"Tạo thành công\";\n    \n    return [msg, null];\n} else {\n    msg.payload = \"Đã tồn tại tài khoản!\";\n    return [null, msg];\n}",
+        "func": "if (msg.payload.register === true) {\n    msg.payload = \"Tạo thành công\";\n    \n    return [msg, null];\n",
         "outputs": 2,
         "timeout": "",
-        "noerr": 0,
+        "noerr": 1,
         "initialize": "",
         "finalize": "",
         "libs": [],
@@ -294,9 +297,7 @@
             [
                 "31397d069c977732"
             ],
-            [
-                "c4e572353aac2eab"
-            ]
+            []
         ]
     },
     {
@@ -467,7 +468,7 @@
         "passthru": true,
         "mode": "password",
         "delay": "0",
-        "topic": "password",
+        "topic": "newPassword",
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
@@ -490,7 +491,7 @@
         "width": "6",
         "height": "1",
         "passthru": false,
-        "label": "Đổi",
+        "label": "Xác nhận ",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -531,7 +532,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "4a9fc846b062bec6",
         "name": "Gửi MQTT user_login",
-        "func": "var username = flow.get(\"username\") || \"\";\nvar password = flow.get(\"password\") || \"\";\n\nreturn {\n    topic: \"user_login\",\n    payload: {\n        username: username,\n        password: password\n    }\n};",
+        "func": "var username = flow.get(\"username\") || \"\";\nvar newPassword = flow.get(\"newPassword\") || \"\";\n\nreturn {\n    topic: \"user_login\",\n    payload: {\n        username: username,\n        newPassword: newPassword\n    }\n};",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -542,7 +543,8 @@
         "y": 300,
         "wires": [
             [
-                "9429407e1375e25a"
+                "9429407e1375e25a",
+                "02d2b0f2fcc2fc69"
             ]
         ]
     },
@@ -707,7 +709,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1250,
+        "x": 1270,
         "y": 300,
         "wires": [
             [
@@ -953,7 +955,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "9ccd4a726342b2c0",
         "name": "Xử lý kết quả",
-        "func": "if (msg.payload.delete === true) {\n    msg.payload = \"Đổi thành công\";\n    \n    return [msg, null];\n} else {\n    msg.payload = \"Không tồn tại tài khoản?\";\n    return [null, msg];\n}",
+        "func": "if (msg.payload.delete === true) {\n    msg.payload = \"Xóa thành công\";\n    \n    return [msg, null];\n} else {\n    msg.payload = \"Không tồn tại tài khoản?\";\n    return [null, msg];\n}",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -1799,6 +1801,44 @@
         "y": 580,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "02d2b0f2fcc2fc69",
+        "type": "debug",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "7c10bb54613c2de2",
+        "type": "function",
+        "z": "0102ef3a5e2d0b80",
+        "g": "1c3997bc1114fe52",
+        "name": "function 171",
+        "func": "if (msg.payload.register === false) {\n    msg.payload = \"Tắt đèn thành công\";\n    return [msg, null];  // tiếp tục luồng xử lý (output 1)\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 360,
+        "wires": [
+            [
+                "c4e572353aac2eab"
+            ]
         ]
     },
     {
