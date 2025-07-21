@@ -185,7 +185,7 @@
         "width": 6,
         "height": 1,
         "passthru": false,
-        "label": "Đăng kí",
+        "label": "Đăng ký",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -1168,7 +1168,7 @@
         "width": 3,
         "height": 1,
         "passthru": false,
-        "label": "Thoát",
+        "label": "Đằng xuất",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -1178,8 +1178,8 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 2010,
-        "y": 440,
+        "x": 2650,
+        "y": 400,
         "wires": [
             [
                 "a4b59dfee4e7666a"
@@ -1264,14 +1264,14 @@
         "order": 4,
         "width": 0,
         "height": 0,
-        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://cisat.hcmute.edu.vn/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://node-red-on-render-pgsk.onrender.com/ui/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
         "storeOutMessages": false,
         "fwdInMessages": false,
         "resendOnRefresh": false,
         "templateScope": "local",
         "className": "",
-        "x": 2760,
-        "y": 500,
+        "x": 2740,
+        "y": 540,
         "wires": [
             []
         ]
@@ -1368,7 +1368,7 @@
         "width": 3,
         "height": 1,
         "passthru": false,
-        "label": "Thoát",
+        "label": "Đăng xuất",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -1468,7 +1468,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://cisat.hcmute.edu.vn/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://node-red-on-render-pgsk.onrender.com/ui/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
         "storeOutMessages": false,
         "fwdInMessages": false,
         "resendOnRefresh": false,
@@ -1513,7 +1513,7 @@
         "width": 3,
         "height": 1,
         "passthru": false,
-        "label": "Thoát",
+        "label": "Đăng xuất",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -1523,7 +1523,7 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 190,
+        "x": 210,
         "y": 620,
         "wires": [
             [
@@ -1595,7 +1595,7 @@
         "randomUnits": "seconds",
         "allowrate": false,
         "outputs": 1,
-        "x": 650,
+        "x": 590,
         "y": 600,
         "wires": [
             [
@@ -1613,7 +1613,7 @@
         "order": 4,
         "width": 0,
         "height": 0,
-        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://cisat.hcmute.edu.vn/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://node-red-on-render-pgsk.onrender.com/ui/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
         "storeOutMessages": false,
         "fwdInMessages": false,
         "resendOnRefresh": false,
@@ -1675,7 +1675,7 @@
         "width": 3,
         "height": 1,
         "passthru": false,
-        "label": "Thoát",
+        "label": "Đăng Xuất",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -1686,7 +1686,7 @@
         "topic": "",
         "topicType": "str",
         "x": 1190,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
                 "ee2b6ea7a8adc907"
@@ -1775,7 +1775,7 @@
         "order": 4,
         "width": 0,
         "height": 0,
-        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://cisat.hcmute.edu.vn/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://node-red-on-render-pgsk.onrender.com/ui/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
         "storeOutMessages": false,
         "fwdInMessages": false,
         "resendOnRefresh": false,
@@ -1953,14 +1953,53 @@
         ]
     },
     {
-        "id": "da1e552dd7711989",
-        "type": "ui_spacer",
+        "id": "633394a5bda4beb8",
+        "type": "ui_button",
         "z": "0102ef3a5e2d0b80",
-        "name": "spacer",
+        "name": "",
         "group": "19b13f6f4596a6de",
         "order": 2,
         "width": 3,
-        "height": 1
+        "height": 1,
+        "passthru": false,
+        "label": "Hướng dẫn",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"tab\":\"Hướng dẫn\"}",
+        "payloadType": "json",
+        "topic": "",
+        "topicType": "str",
+        "x": 2290,
+        "y": 120,
+        "wires": [
+            [
+                "ee2daf0403a325bc"
+            ]
+        ]
+    },
+    {
+        "id": "tmpl_guides",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "group": "group_guides",
+        "name": "Trang Hướng dẫn",
+        "order": 1,
+        "width": 7,
+        "height": 18,
+        "format": "<style>\n  .guide-box {\n    padding: 20px;\n    font-family: 'Segoe UI', sans-serif;\n    line-height: 1.6;\n    border: 1px solid #ccc;\n    border-radius: 10px;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);\n    background-color: #fdfdfd;\n    margin-bottom: 20px;\n  }\n\n  .guide-box h2 {\n    color: #0066cc;\n    margin-bottom: 10px;\n  }\n\n  .guide-box h3 {\n    margin-top: 20px;\n    color: #444;\n  }\n\n  .guide-box ul {\n    padding-left: 20px;\n  }\n\n  .highlight {\n    color: #c33;\n    font-weight: bold;\n  }\n</style>\n\n<div class=\"guide-box\">\n  <h2>Chào mừng đến với Trung tâm Sáng tạo Khởi nghiệp &amp; Chuyển giao Công nghệ (MakerSpace)</h2>\n  <p>Nơi sinh viên có thể nghiên cứu, học tập và trải nghiệm thực tiễn trong môi trường sáng tạo, hiện đại.</p>\n\n  <h3>1. Đối tượng người dùng</h3>\n  <ul>\n    <li><b>Sinh viên chưa đăng ký</b>: Sinh viên tham quan, học tập.</li>\n    <li><b>Đối tượng đã đăng ký</b>: Nhóm sinh viên, Giảng viên làm việc.</li>\n    <li><b>Bảo mật</b>: Bộ phận quản lý, toàn quyền hệ thống.</li>\n  </ul>\n\n  <h3>2. Tài khoản &amp; Bảo mật</h3>\n  <ul>\n    <li><span class=\"highlight\">Đăng ký tài khoản qua bộ phận quản lý CISAT</span>.</li>\n    <li><b>Sinh viên chưa đăng ký</b>: Điều khiển trực tiếp (1 đèn - 1 giờ).</li>\n    <li><b>Sinh viên đã đăng ký</b>: Không giới hạn đèn <span class=\"highlight\">(Email@student.hcmute.edu.vn)</span>.\n    </li>\n    <li><b>Giảng viên đã đăng ký</b>: Không giới hạn thiết bị <span class=\"highlight\">(Email@hcmute.edu.vn)</span>.</li>\n    <li><b>Admin</b>: Sử dụng email được cấp sẵn.</li>\n    <li>Mật khẩu &ge; 6 ký tự. Quên mật khẩu → liên hệ Admin.</li>\n  </ul>\n\n  <h3>3. Lưu ý khi sử dụng</h3>\n  <ul>\n    <li>Guest có thể xin thêm thời gian sử dụng đèn.</li>\n    <li>Tắt đèn/quạt sau khi dùng (trừ khi tự động).</li>\n    <li>Mọi thắc mắc, liên hệ bộ phận kỹ thuật.</li>\n  </ul>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 2930,
+        "y": 140,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "1ee8b7c65473f833",
@@ -2082,6 +2121,16 @@
         "className": ""
     },
     {
+        "id": "group_guides",
+        "type": "ui_group",
+        "name": "Hướng dẫn MakerSpace",
+        "tab": "tab_guides",
+        "order": 1,
+        "disp": true,
+        "width": 7,
+        "collapse": false
+    },
+    {
         "id": "edff4ca80b5a4d7b",
         "type": "ui_tab",
         "name": "Tạo tài khoản",
@@ -2116,5 +2165,12 @@
         "order": 5,
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "tab_guides",
+        "type": "ui_tab",
+        "name": "Hướng dẫn",
+        "icon": "book",
+        "order": 2
     }
 ]
