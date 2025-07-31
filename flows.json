@@ -77,12 +77,15 @@
             "db27bd5b1c0a8feb",
             "02d2b0f2fcc2fc69",
             "a01a3b7b4b2cbf99",
-            "d99e7ae240d12c43"
+            "d99e7ae240d12c43",
+            "fa59e7eb9174807f",
+            "aa6e44bc878f39db",
+            "3b8ecc04604307d1"
         ],
         "x": 1034,
-        "y": 139,
+        "y": 119,
         "w": 1012,
-        "h": 542
+        "h": 562
     },
     {
         "id": "9ccd4a726342b2c0",
@@ -149,7 +152,8 @@
             "49108a8a63065842",
             "4bcf96cb8431767b",
             "548cc6cb9ad98c61",
-            "e6840fb9016a9c62"
+            "e6840fb9016a9c62",
+            "d624c44f224cf145"
         ],
         "x": 2314,
         "y": 659,
@@ -203,14 +207,12 @@
             "2d3495a045b613b0",
             "1684e490ace6fb6c",
             "e8ddac221f4e1ca8",
-            "19264aa1bb38c8bf",
-            "0b44bd7f379ac6ce",
             "16de2ede17b4a82c"
         ],
         "x": 3574,
         "y": 699,
         "w": 1272,
-        "h": 762
+        "h": 642
     },
     {
         "id": "bb678e3b3cd3cd99",
@@ -1260,7 +1262,7 @@
         "width": 3,
         "height": 1,
         "passthru": false,
-        "label": "Đằng xuất",
+        "label": "Đăng xuất",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -2128,7 +2130,7 @@
         "g": "9a727d3644f66c8e",
         "name": "token",
         "group": "6283e33af4f473f5",
-        "order": 3,
+        "order": 1,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -2156,7 +2158,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "9a727d3644f66c8e",
         "name": "Gửi MQTT user_login",
-        "func": "var username = flow.get(\"username\") || \"\";\nvar newPassword = flow.get(\"newPassword\") || \"\";\n\nreturn {\n    topic: \"user_login\",\n    payload: {\n        username: token\n    }\n};",
+        "func": "return {\n    payload: 1\n};\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -2167,7 +2169,8 @@
         "y": 700,
         "wires": [
             [
-                "d3f99e05cea333bc"
+                "d3f99e05cea333bc",
+                "d624c44f224cf145"
             ]
         ]
     },
@@ -2177,7 +2180,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "9a727d3644f66c8e",
         "name": "Đăng nhập MQTT",
-        "topic": "TOKEN_DEIVCE21146282",
+        "topic": "TOKEN_DEVICE21146282",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -2219,7 +2222,7 @@
         "g": "9a727d3644f66c8e",
         "name": "ID",
         "group": "8b4e0a6d48f9ea58",
-        "order": 3,
+        "order": 1,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -2258,7 +2261,8 @@
         "y": 780,
         "wires": [
             [
-                "5e8a4c3ed2bbc9fa"
+                "5e8a4c3ed2bbc9fa",
+                "d624c44f224cf145"
             ]
         ]
     },
@@ -2310,7 +2314,7 @@
         "g": "9a727d3644f66c8e",
         "name": "LOCAL",
         "group": "44de2f2f2634cb2c",
-        "order": 3,
+        "order": 1,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -2349,7 +2353,8 @@
         "y": 860,
         "wires": [
             [
-                "d594f49cb61e6045"
+                "d594f49cb61e6045",
+                "d624c44f224cf145"
             ]
         ]
     },
@@ -2359,7 +2364,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "9a727d3644f66c8e",
         "name": "Đăng nhập MQTT",
-        "topic": "CHANGE_LOGIN21146282",
+        "topic": "LOCAL_DEVICE21146282",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -2401,7 +2406,7 @@
         "g": "9a727d3644f66c8e",
         "group": "8b4e0a6d48f9ea58",
         "name": "Title MakerSpace",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "format": "<div style=\"text-align: center; font-size: 18px; font-weight: bold; color: #dc3545;\">\n  (Chỉ cập nhật lại ID khi cần thiết)  \n</div>",
@@ -2653,9 +2658,9 @@
         "type": "ui_template",
         "z": "0102ef3a5e2d0b80",
         "g": "9a727d3644f66c8e",
-        "group": "1ee8b7c65473f833",
+        "group": "44de2f2f2634cb2c",
         "name": "Thông báo & Chuyển trang",
-        "order": 4,
+        "order": 2,
         "width": 0,
         "height": 0,
         "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://node-red-on-render-pgsk.onrender.com/ui/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
@@ -3070,7 +3075,7 @@
         "className": "",
         "topic": "Điều khiển thành công",
         "name": "Thông báo thành công",
-        "x": 4180,
+        "x": 4100,
         "y": 920,
         "wires": []
     },
@@ -3130,7 +3135,7 @@
         "finalize": "",
         "libs": [],
         "x": 3830,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "dce8b92dc376b68f"
@@ -3165,7 +3170,7 @@
         "g": "3a05d3cabc3495d2",
         "group": "19da0368fbb4f82c",
         "name": "Title MakerSpace",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "format": "<div style=\"text-align: center; font-size: 24px; font-weight: bold; color: #007bff;\">\n  MAKERSPACE\n</div>",
@@ -3516,13 +3521,75 @@
         ]
     },
     {
-        "id": "19264aa1bb38c8bf",
-        "type": "ui_button",
+        "id": "16de2ede17b4a82c",
+        "type": "ui_template",
         "z": "0102ef3a5e2d0b80",
         "g": "3a05d3cabc3495d2",
+        "group": "05caf864b614c69a",
+        "name": "Thông báo & Chuyển trang",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align:center; font-size:20px; color:red;\">\n    <p id=\"success-msg\" style=\"display:none;\">✅ Vui lòng thoát sau khi dùng!</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('success-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://node-red-admin.onrender.com/ui/\";\n            }, 00000);\n        } else {\n            document.getElementById('success-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 4440,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d624c44f224cf145",
+        "type": "ui_toast",
+        "z": "0102ef3a5e2d0b80",
+        "g": "9a727d3644f66c8e",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "Điều khiển thành công",
+        "name": "Thông báo thành công",
+        "x": 2980,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "af68a7128b473072",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "group": "21a7eb37f0968396",
+        "name": "Hiển thị 70 LED",
+        "order": 1,
+        "width": 6,
+        "height": 13,
+        "format": "<!-- Font Awesome (chỉ cần thêm một lần trong <head> nếu dùng web) -->\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css\">\n\n<div layout=\"row\" layout-wrap layout-align=\"center center\"\n    style=\"justify-content: center; padding: 10px; background-color: #f0f2f5; font-family: 'Segoe UI', sans-serif;\">\n\n    <div ng-repeat=\"led in msg.payload\" style=\"margin: 8px;\n                width: 120px;\n                height: 80px;\n                background: linear-gradient(135deg, {{led.color}}, #2c3e50);\n                color: white;\n                border-radius: 20px;\n                display: flex;\n                flex-direction: column;\n                justify-content: center;\n                align-items: center;\n                box-shadow: 0 4px 12px rgba(0,0,0,0.15);\n                transition: transform 0.2s ease, box-shadow 0.2s ease;\n                cursor: pointer;\"\n        onmouseover=\"this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.2)'\"\n        onmouseout=\"this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'\">\n\n        <!-- ICON LED -->\n        <div style=\"font-size: 24px; margin-bottom: 5px;\">\n            <i class=\"fas fa-lightbulb\"></i>\n        </div>\n\n        <!-- ID và trạng thái -->\n        <div style=\"font-size: 16px; font-weight: bold;\">LED {{led.id}}</div>\n        <div style=\"font-size: 13px; opacity: 0.9;\">{{led.status}}</div>\n    </div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 4020,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a9bdea761b952d8e",
+        "type": "ui_button",
+        "z": "0102ef3a5e2d0b80",
         "name": "",
         "group": "19da0368fbb4f82c",
-        "order": 4,
+        "order": 5,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -3532,26 +3599,25 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "{\"tab\":\"Thiết bị\"}",
+        "payload": "{\"tab\":\"Thiết bị đèn\"}",
         "payloadType": "json",
         "topic": "",
         "topicType": "str",
-        "x": 3670,
-        "y": 1360,
+        "x": 2470,
+        "y": 140,
         "wires": [
             [
-                "a27f8e67b5946881"
+                "ee2daf0403a325bc"
             ]
         ]
     },
     {
-        "id": "0b44bd7f379ac6ce",
+        "id": "ab9e26e45d9c216f",
         "type": "ui_button",
         "z": "0102ef3a5e2d0b80",
-        "g": "3a05d3cabc3495d2",
         "name": "",
         "group": "19da0368fbb4f82c",
-        "order": 5,
+        "order": 6,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -3565,34 +3631,320 @@
         "payloadType": "json",
         "topic": "",
         "topicType": "str",
-        "x": 3670,
-        "y": 1420,
+        "x": 2530,
+        "y": 80,
         "wires": [
             [
-                "a27f8e67b5946881"
+                "ee2daf0403a325bc"
             ]
         ]
     },
     {
-        "id": "16de2ede17b4a82c",
+        "id": "9e50c274fe2f7c71",
+        "type": "mqtt in",
+        "z": "0102ef3a5e2d0b80",
+        "name": "MQTT Đèn",
+        "topic": "STATUS_21146282",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "37fcf5bfccf8b220",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 3520,
+        "y": 540,
+        "wires": [
+            [
+                "d1f2565decd1f8ed"
+            ]
+        ]
+    },
+    {
+        "id": "4ecc7e36c1694f86",
+        "type": "function",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Cập nhật trạng thái LED",
+        "func": "// Tạo danh sách 70 đèn, tất cả OFF mặc định\nlet leds = global.get(\"leds\") || Array.from({length: 70}, (_, i) => ({\n    id: i + 1,\n    status: \"OFF\",\n    color: \"gray\"\n}));\n\n// Nếu có payload từ MQTT\nif (msg.payload && msg.payload.value !== undefined) {\n    const index = msg.payload.value - 1;\n    if (index >= 0 && index < 70) {\n        leds[index].status = msg.payload.status;\n        leds[index].color = msg.payload.status === \"ON\" ? \"green\" : \"gray\";\n    }\n}\n\n// Lưu lại trạng thái toàn cục\nglobal.set(\"leds\", leds);\n\nmsg.payload = leds;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 3770,
+        "y": 620,
+        "wires": [
+            [
+                "af68a7128b473072"
+            ]
+        ]
+    },
+    {
+        "id": "d1f2565decd1f8ed",
+        "type": "json",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Parse JSON",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 3710,
+        "y": 520,
+        "wires": [
+            [
+                "55b34ad2264c8787",
+                "4ecc7e36c1694f86"
+            ]
+        ]
+    },
+    {
+        "id": "55b34ad2264c8787",
+        "type": "function",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Format for UI",
+        "func": "// msg.payload = { status: \"ON\", value: 10 }\nconst status = msg.payload.status;\nconst value = msg.payload.value;\n\nmsg.payload = {\n    label: \"Đèn \" + value,\n    status: status,\n    color: status === \"ON\" ? \"green\" : \"gray\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 3910,
+        "y": 540,
+        "wires": [
+            [
+                "083808c39f9b708b"
+            ]
+        ]
+    },
+    {
+        "id": "083808c39f9b708b",
         "type": "ui_template",
         "z": "0102ef3a5e2d0b80",
-        "g": "3a05d3cabc3495d2",
-        "group": "05caf864b614c69a",
-        "name": "Thông báo & Chuyển trang",
-        "order": 6,
+        "group": "19da0368fbb4f82c",
+        "name": "Light Status Card",
+        "order": 7,
         "width": 0,
         "height": 0,
-        "format": "<div style=\"text-align:center; font-size:20px; color:red;\">\n    <p id=\"success-msg\" style=\"display:none;\">✅ Vui lòng thoát sau khi dùng!</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('success-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://node-red-on-render-pgsk.onrender.com/ui/\";\n            }, 900000);\n        } else {\n            document.getElementById('success-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
+        "format": "<div style=\"padding:10px; border-radius: 8px; background-color: {{msg.payload.color}}; color: white;\">\n    <b>{{msg.payload.label}}</b><br>\n    Trạng thái: {{msg.payload.status}}\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 4150,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa59e7eb9174807f",
+        "type": "inject",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "name": "Lặp mỗi giây",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 1400,
+        "y": 160,
+        "wires": [
+            [
+                "aa6e44bc878f39db"
+            ]
+        ]
+    },
+    {
+        "id": "aa6e44bc878f39db",
+        "type": "function",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "name": "Lấy giờ Việt Nam",
+        "func": "let now = new Date();\n\n// Cộng thêm 7 tiếng để ra giờ Việt Nam\nnow.setHours(now.getHours() + 7);\n\nlet gio = now.getHours().toString().padStart(2, '0');\nlet phut = now.getMinutes().toString().padStart(2, '0');\nlet giay = now.getSeconds().toString().padStart(2, '0');\n\nlet ngay = now.getDate().toString().padStart(2, '0');\nlet thang = (now.getMonth() + 1).toString().padStart(2, '0');\nlet nam = now.getFullYear();\n\nmsg.payload = `🕒 ${gio}:${phut}:${giay} | 📅 ${ngay}/${thang}/${nam}`;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1590,
+        "y": 160,
+        "wires": [
+            [
+                "3b8ecc04604307d1"
+            ]
+        ]
+    },
+    {
+        "id": "3b8ecc04604307d1",
+        "type": "ui_text",
+        "z": "0102ef3a5e2d0b80",
+        "g": "4a9fc846b062bec6",
+        "group": "19da0368fbb4f82c",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "name": "Hiển thị thời gian",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1790,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b348719f968d0df8",
+        "type": "ui_button",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Gửi MQTT",
+        "group": "aec8b69d9b78ff05",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Đăng Xuất",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "send",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 3530,
+        "y": 420,
+        "wires": [
+            [
+                "3898624fca18f964"
+            ]
+        ]
+    },
+    {
+        "id": "3898624fca18f964",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Set redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "redirect",
+                "tot": "str"
+            }
+        ],
+        "x": 3710,
+        "y": 420,
+        "wires": [
+            [
+                "b6b82b8dbc1084e1",
+                "006f608a27697e88"
+            ]
+        ]
+    },
+    {
+        "id": "ec84ab081b51547f",
+        "type": "change",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Xóa redirect",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "idle",
+                "tot": "str"
+            }
+        ],
+        "x": 3900,
+        "y": 440,
+        "wires": [
+            [
+                "006f608a27697e88"
+            ]
+        ]
+    },
+    {
+        "id": "b6b82b8dbc1084e1",
+        "type": "delay",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Delay xóa redirect",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "",
+        "randomLast": "",
+        "randomUnits": "seconds",
+        "allowrate": false,
+        "outputs": 1,
+        "x": 3990,
+        "y": 380,
+        "wires": [
+            [
+                "ec84ab081b51547f"
+            ]
+        ]
+    },
+    {
+        "id": "006f608a27697e88",
+        "type": "ui_template",
+        "z": "0102ef3a5e2d0b80",
+        "group": "21a7eb37f0968396",
+        "name": "Thông báo & Chuyển trang",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align:center; font-size:20px; color:green;\">\n    <p id=\"Change-msg\" style=\"display:none;\">✅ Đang chuyển trang</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        if (payload === 'redirect') {\n            document.getElementById('Change-msg').style.display = 'block';\n            setTimeout(() => {\n                window.location.href = \"https://node-red-on-render-pgsk.onrender.com/ui/\";\n            }, 2000);\n        } else {\n            document.getElementById('Change-msg').style.display = 'none';\n        }\n    });\n})(scope);\n</script>",
         "storeOutMessages": false,
         "fwdInMessages": false,
         "resendOnRefresh": false,
         "templateScope": "local",
         "className": "",
-        "x": 4440,
-        "y": 920,
+        "x": 4240,
+        "y": 440,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "fd52be2aaec0d160",
+        "type": "ui_button",
+        "z": "0102ef3a5e2d0b80",
+        "name": "",
+        "group": "aec8b69d9b78ff05",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Quay lại",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": " ",
+        "className": "",
+        "icon": "",
+        "payload": "{\"tab\":\"Admin\"}",
+        "payloadType": "json",
+        "topic": "",
+        "topicType": "str",
+        "x": 2445,
+        "y": 243.75,
+        "wires": [
+            [
+                "ee2daf0403a325bc"
+            ]
         ]
     },
     {
@@ -3791,6 +4143,28 @@
         "className": ""
     },
     {
+        "id": "21a7eb37f0968396",
+        "type": "ui_group",
+        "name": "Thiết bị",
+        "tab": "15779f70e81b311a",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "aec8b69d9b78ff05",
+        "type": "ui_group",
+        "name": "Vui lòng thoát sau khi sử dụng",
+        "tab": "15779f70e81b311a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "edff4ca80b5a4d7b",
         "type": "ui_tab",
         "name": "Tạo tài khoản",
@@ -3848,6 +4222,15 @@
         "name": "Điều khiển",
         "icon": "dashboard",
         "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "15779f70e81b311a",
+        "type": "ui_tab",
+        "name": "Thiết bị đèn",
+        "icon": "dashboard",
+        "order": 3,
         "disabled": false,
         "hidden": false
     }
