@@ -152,9 +152,9 @@
             "914c893e35b171a6"
         ],
         "x": 2314,
-        "y": 579,
+        "y": 599,
         "w": 1232,
-        "h": 502
+        "h": 482
     },
     {
         "id": "d676ed17ad71b119",
@@ -184,7 +184,6 @@
             "5ac1184c33ed91f0",
             "2c3ac02f043cd945",
             "38484b9bd3ea5a46",
-            "d274d0c6caa26212",
             "098331d4c0cf9e95",
             "dc9bb26a1c498284",
             "bd7644002ad9aa77",
@@ -256,7 +255,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "x": 810,
         "y": 300,
         "wires": []
@@ -270,7 +269,7 @@
         "topic": "CREAT_RESULT21146282",
         "qos": "0",
         "datatype": "json",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "nl": false,
         "rap": false,
         "inputs": 0,
@@ -426,7 +425,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "x": 1750,
         "y": 300,
         "wires": []
@@ -440,7 +439,7 @@
         "topic": "CHANGE_RESULT21146282",
         "qos": "0",
         "datatype": "json",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "nl": false,
         "rap": false,
         "inputs": 0,
@@ -604,7 +603,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "x": 1710,
         "y": 880,
         "wires": []
@@ -618,7 +617,7 @@
         "topic": "DELETE_RESULT21146282",
         "qos": "0",
         "datatype": "json",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "nl": false,
         "rap": false,
         "inputs": 0,
@@ -745,7 +744,7 @@
         "z": "0102ef3a5e2d0b80",
         "name": "Check token mỗi 10s",
         "props": [],
-        "repeat": "5",
+        "repeat": "10",
         "crontab": "",
         "once": true,
         "onceDelay": "1",
@@ -1413,7 +1412,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "9a727d3644f66c8e",
         "name": "Đăng nhập MQTT",
-        "topic": "TOKEN_DEVICE21146282",
+        "topic": "token",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1421,7 +1420,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "x": 2970,
         "y": 700,
         "wires": []
@@ -1444,7 +1443,8 @@
         "wires": [
             [
                 "d3f99e05cea333bc",
-                "974e1c7aaedfa109"
+                "974e1c7aaedfa109",
+                "d624c44f224cf145"
             ],
             []
         ]
@@ -1455,7 +1455,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "9a727d3644f66c8e",
         "name": "Đăng nhập MQTT",
-        "topic": "ID_DEVICE21146282",
+        "topic": "reset",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1463,7 +1463,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "x": 2970,
         "y": 780,
         "wires": []
@@ -1486,7 +1486,8 @@
         "wires": [
             [
                 "5e8a4c3ed2bbc9fa",
-                "c859ece43e4fe9de"
+                "c859ece43e4fe9de",
+                "d624c44f224cf145"
             ],
             []
         ]
@@ -1497,7 +1498,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "9a727d3644f66c8e",
         "name": "Đăng nhập MQTT",
-        "topic": "LOCAL_DEVICE21146282",
+        "topic": "Local",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1505,7 +1506,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "x": 2970,
         "y": 860,
         "wires": []
@@ -1528,7 +1529,8 @@
         "wires": [
             [
                 "d594f49cb61e6045",
-                "914c893e35b171a6"
+                "914c893e35b171a6",
+                "d624c44f224cf145"
             ],
             []
         ]
@@ -1739,8 +1741,8 @@
         "className": "",
         "topic": "Điều khiển thành công",
         "name": "Thông báo thành công",
-        "x": 3240,
-        "y": 620,
+        "x": 3080,
+        "y": 640,
         "wires": []
     },
     {
@@ -2536,8 +2538,8 @@
                 "tot": "str"
             }
         ],
-        "x": 3270,
-        "y": 720,
+        "x": 3210,
+        "y": 740,
         "wires": [
             [
                 "79fe8a4ad45e29e2",
@@ -3000,25 +3002,6 @@
         ]
     },
     {
-        "id": "d274d0c6caa26212",
-        "type": "mqtt out",
-        "z": "0102ef3a5e2d0b80",
-        "g": "d676ed17ad71b119",
-        "name": "APP_ALL21146282",
-        "topic": "APP_ALL21146282",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "37fcf5bfccf8b220",
-        "x": 4820,
-        "y": 1080,
-        "wires": []
-    },
-    {
         "id": "098331d4c0cf9e95",
         "type": "mqtt out",
         "z": "0102ef3a5e2d0b80",
@@ -3106,7 +3089,7 @@
         "order": 4,
         "width": 6,
         "height": 10,
-        "format": "<!-- Font Awesome -->\n<style>\n  .glow-btn {\n    position: relative;\n    overflow: hidden;\n    z-index: 1;\n    color: white;\n    font-weight: bold;\n    padding: 12px 24px;\n    border: none;\n    border-radius: 10px;\n    font-size: 16px;\n    cursor: pointer;\n  }\n\n  .glow-btn::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: -150%;\n    width: 200%;\n    height: 100%;\n    z-index: 0;\n    pointer-events: none;\n    animation: shimmer 3s infinite;\n  }\n\n  .glow-btn-on {\n    background-color: #0077cc;\n  }\n\n  .glow-btn-on::before {\n    background: linear-gradient(120deg,\n        rgba(0, 255, 255, 0),\n        rgba(0, 255, 255, 0.4),\n        rgba(0, 255, 255, 0));\n  }\n\n  .glow-btn-off {\n    background-color: #990000;\n  }\n\n  .glow-btn-off::before {\n    background: linear-gradient(120deg,\n        rgba(255, 165, 0, 0),\n        rgba(255, 200, 100, 0.4),\n        rgba(255, 165, 0, 0));\n  }\n\n  @keyframes shimmer {\n    0% {\n      left: -150%;\n    }\n\n    50% {\n      left: 100%;\n    }\n\n    100% {\n      left: 100%;\n    }\n  }\n\n  .fade-in-up {\n    opacity: 0;\n    transform: translateY(20px);\n    animation: fadeInUp 0.8s ease-out forwards;\n  }\n\n  @keyframes fadeInUp {\n    to {\n      opacity: 1;\n      transform: translateY(0);\n    }\n  }\n\n  html,\n  body {\n    height: auto !important;\n    min-height: 100%;\n    overflow-y: auto;\n    /* Cho phép cuộn theo chiều dọc */\n    scroll-behavior: smooth;\n  }\n\n  body {\n    margin: 0;\n    padding-bottom: 50px;\n    /* chừa khoảng cách nếu có nội dung dài */\n  }\n</style>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css\">\n\n<!-- Container chính -->\n<div class=\"fade-in-up\"\n  style=\"font-family: 'Segoe UI', sans-serif; max-width: 380px; margin: auto; padding: 17px; border-radius: 18px;\n            background: linear-gradient(145deg, #1a1a1a, #2c2c2c); box-shadow: 0 6px 14px rgba(0,0,0,0.3); color: #fff;\">\n\n  <!-- Tiêu đề -->\n  <div style=\"padding: 12px; border-radius: 10px; background: #1f1f1f; color: white; font-size: 20px; font-weight: bold;\n              display: flex; align-items: center; justify-content: center; gap: 10px; margin: 5px 0;\n              text-shadow: 0 0 4px rgba(0, 255, 255, 0.6), 0 0 8px rgba(0, 255, 255, 0.4);\">\n    <i class=\"fa-solid fa-plug\"></i> Sinh viên & Giảng viên\n  </div>\n\n  <!-- Thẻ trạng thái -->\n  <div style=\"padding: 12px; border-radius: 10px; background: {{msg.payload.color}}; color: white; font-size: 16px;\n              display: flex; align-items: center; gap: 10px; margin: 16px 0; border: 1px solid rgba(0, 255, 255, 0.3);\n              box-shadow: 0 0 10px rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.1);\">\n    <div style=\"font-size: 24px;\"><i class=\"fa fa-lightbulb-o\"></i></div>\n    <div>\n      <div style=\"font-weight: bold;\">{{msg.payload.label}}</div>\n      <div>Trạng thái: <span style=\"font-weight: 500;\">{{msg.payload.status}}</span></div>\n    </div>\n  </div>\n\n  <!-- Nhập và nút bật/tắt -->\n  <div style=\"display: flex; flex-direction: column; align-items: center;\">\n    <input id=\"deviceInput1\" type=\"number\" min=\"1\" max=\"70\" placeholder=\"Nhập số đèn (1-70)\"\n           style=\"width: 90%; max-width: 300px; padding: 12px; font-size: 16px; border-radius: 10px;\n                  background-color: #2e2e2e; color: #00ffe1; box-shadow: inset 0 0 6px rgba(0,255,225,0.25); margin-bottom: 12px; border: none; outline: none;\">\n    <button id=\"sendBtn1\" class=\"glow-btn glow-btn-on\"\n      style=\"width: 90%; max-width: 300px; padding: 12px; font-size: 16px; border-radius: 10px;\n             background: linear-gradient(90deg, #00c9ff, #92fe9d); color: black; border: none; cursor: pointer;\n             font-weight: bold; letter-spacing: 0.5px; box-shadow: 0 3px 8px rgba(0,0,0,0.2); margin-bottom: 18px;\">\n      <i class=\"fa-solid fa-paper-plane\"></i> Bật đèn\n    </button>\n\n    <input id=\"deviceInput2\" type=\"number\" min=\"1\" max=\"70\" placeholder=\"Nhập số đèn (1-70)\"\n           style=\"width: 90%; max-width: 300px; padding: 12px; font-size: 16px; border-radius: 10px;\n                  background-color: #2e2e2e; color: #00ffe1; box-shadow: inset 0 0 6px rgba(0,255,225,0.25); margin-bottom: 12px; border: none; outline: none;\">\n    <button id=\"sendBtn2\" class=\"glow-btn glow-btn-off\"\n      style=\"width: 90%; max-width: 300px; padding: 12px; font-size: 16px; border-radius: 10px;\n             background: linear-gradient(90deg, #ff9966, #ff5e62); color: black; border: none; cursor: pointer;\n             font-weight: bold; letter-spacing: 0.5px; box-shadow: 0 3px 8px rgba(0,0,0,0.2);\">\n      <i class=\"fa-solid fa-paper-plane\"></i> Tắt đèn\n    </button>\n  </div>\n\n  <!-- Nút khởi động giọng nói -->\n  <div style=\"margin-top: 20px; text-align: center;\">\n    <button id=\"start-btn\" style=\"padding: 14px 28px; font-size: 15px; font-weight: bold;\n      background: linear-gradient(135deg, #00ffe1, #0055ff); color: black; border: none; border-radius: 50px;\n      cursor: pointer; box-shadow: 0 0 12px #00ffe1, 0 0 24px #0055ff; transition: all 0.3s ease;\">\n      🎤 Nhấn để nói\n    </button>\n  </div>\n</div>\n\n<!-- Phần hướng dẫn và kết quả, chỉ chữ viền neon dịu mắt, KHÔNG viền hay background bao ngoài -->\n<div style=\"max-width: 380px; margin: 20px auto 0 auto; font-family: 'Segoe UI', sans-serif; color: white;\">\n\n  <p id=\"voice-guide\" style=\"\n    margin: 0 0 6px 0;\n    font-size: 16px;\n    font-style: italic;\n    text-align: center;\n    text-shadow:\n      0 0 2px #00ffff,\n      0 0 4px #00ffff,\n      0 0 6px #00ffff;\">\n    <i class=\"fa-solid fa-microphone\"></i> Nói: \"Bật đèn 1\" hoặc \"Tắt đèn 2, 3\"\n  </p>\n\n  <p id=\"result\" style=\"\n  margin: 0;\n  font-size: 14px;\n  font-weight: bold;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  text-align: center;\n  color: black;\n  text-shadow:\n    0 0 5px #00ffe1,\n    0 0 10px #00ffe1,\n    0 0 20px #0077ff,\n    0 0 30px #0077ff;\">\n  </p>\n\n</div>\n\n<!-- SCRIPT -->\n<script>\n  (function(scope) {\n  const inputs = [\n    { id: \"deviceInput1\", btn: \"sendBtn1\", topic: \"input1\" },\n    { id: \"deviceInput2\", btn: \"sendBtn2\", topic: \"input2\" }\n  ];\n\n  inputs.forEach(({ id, btn, topic }) => {\n    const input = document.getElementById(id);\n    const button = document.getElementById(btn);\n\n    input.addEventListener(\"focus\", () => {\n      input.style.boxShadow = \"0 0 10px #00ffe1\";\n      input.style.transform = \"scale(1.03)\";\n    });\n\n    input.addEventListener(\"blur\", () => {\n      input.style.boxShadow = \"inset 0 0 6px rgba(0,255,225,0.25)\";\n      input.style.transform = \"scale(1)\";\n    });\n\n    button.addEventListener(\"mouseover\", () => {\n      button.style.transform = \"scale(1.04)\";\n      button.style.boxShadow = \"0 6px 12px rgba(0,0,0,0.35)\";\n    });\n\n    button.addEventListener(\"mouseout\", () => {\n      button.style.transform = \"scale(1)\";\n      button.style.boxShadow = \"0 3px 8px rgba(0,0,0,0.2)\";\n    });\n\n    button.onclick = () => {\n      const value = parseInt(input.value);\n      if (!isNaN(value) && value >= 1 && value <= 70) {\n        scope.send({ payload: value, topic });\n        input.value = \"\"; // 💡 XÓA Ô NHẬP sau khi gửi lệnh\n      } else {\n        alert(\"⚠️ Vui lòng nhập số từ 1 đến 70\");\n      }\n    };\n  });\n\n  const btn = document.getElementById('start-btn');\n  const result = document.getElementById('result');\n  const guide = document.getElementById('voice-guide');\n  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();\n  recognition.lang = 'vi-VN';\n  recognition.interimResults = false;\n\n  btn.addEventListener('click', () => {\n    btn.innerHTML = '🎧 Đang nghe...';\n    btn.style.background = '#000';\n    btn.style.color = '#00ffe1';\n    btn.style.boxShadow = '0 0 10px #00ffe1, 0 0 20px #00ffe1';\n    recognition.start();\n    setTimeout(() => {\n    recognition.stop();\n    }, 5500);\n  });\n\nrecognition.onresult = (event) => {\nconst transcript = event.results[0][0].transcript.toLowerCase();\nguide.style.display = 'none';\nresult.innerHTML = `👉 Bạn nói:\n\"<span style='color: black; font-size: 14px; text-shadow: 0 0 4px #00ffe1, 0 0 8px #0077ff;'>${transcript}</span>\"`;\nbtn.innerHTML = '🎤 Nhấn để nói';\nbtn.style.background = 'linear-gradient(135deg, #00ffe1, #0055ff)';\nbtn.style.color = 'black';\nbtn.style.boxShadow = '0 0 12px #00ffe1, 0 0 24px #0055ff';\n\nconst isBat = transcript.includes(\"bật\");\nconst isTat = transcript.includes(\"tắt\");\n\nconst numbers = transcript.match(/\\d+/g); // tìm tất cả các số\n\nif ((isBat || isTat) && numbers) {\nconst uniqueNumbers = [...new Set(numbers.map(n => parseInt(n)).filter(n => n >= 1 && n <= 70))]; if\n  (uniqueNumbers.length===0) { scope.send({ payload: \"Không có số đèn hợp lệ!\" }); } else {\n  uniqueNumbers.forEach(number=> {\n  scope.send({\n  payload: (isBat ? \"bật \" : \"tắt \") + number,\n  topic: isBat ? \"input3\" : \"input3\"\n  });\n  });\n  }\n  }\n  else if (\n  transcript.includes(\"tắt tất cả\") ||\n  transcript.includes(\"tắt hết\") ||\n  transcript.includes(\"tắt đèn tất cả\") ||\n  transcript.includes(\"tắt đèn hết\")\n  ) {\n  scope.send({ payload: \"ALL_OFF\", topic: \"input3\" });\n  }\n  else if (\n  transcript.includes(\"bật tất cả\") ||\n  transcript.includes(\"bật hết\") ||\n  transcript.includes(\"bật đèn tất cả\") ||\n  transcript.includes(\"bật đèn hết\")\n  ) {\n  scope.send({ payload: \"ALL_ON\", topic: \"input3\" });\n  }\n\n  setTimeout(() => {\n  guide.style.display = 'block';\n  result.innerHTML = '';\n  }, 6000);\n  };\n\n  recognition.onerror = (event) => {\n  result.textContent = `Lỗi: ${event.error}`;\n  btn.innerHTML = '🎤 Nhấn để nói';\n  btn.style.background = 'linear-gradient(135deg, #00ffe1, #0055ff)';\n  btn.style.color = 'black';\n  btn.style.boxShadow = '0 0 12px #00ffe1, 0 0 24px #0055ff';\n  scope.send({ payload: \"Lỗi: \" + event.error });\n  };\n  recognition.onend = () => {\n  btn.innerHTML = '🎤 Nhấn để nói';\n  btn.style.background = 'linear-gradient(135deg, #00ffe1, #0055ff)';\n  btn.style.color = 'black';\n  btn.style.boxShadow = '0 0 12px #00ffe1, 0 0 24px #0055ff';\n  };\n})(scope);\n</script>",
+        "format": "<!-- Font Awesome -->\n<style>\n\n  /* Button phát sáng */\n  .glow-btn {\n    position: relative;\n    overflow: hidden;\n    z-index: 1;\n    color: white;\n    font-weight: bold;\n    padding: 12px 24px;\n    border: none;\n    border-radius: 10px;\n    font-size: 16px;\n    cursor: pointer;\n  }\n\n  .glow-btn::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: -150%;\n    width: 200%;\n    height: 100%;\n    z-index: 0;\n    pointer-events: none;\n    animation: shimmer 3s infinite;\n  }\n\n  .glow-btn-on {\n    background-color: #0077cc;\n  }\n\n  .glow-btn-on::before {\n    background: linear-gradient(120deg,\n        rgba(0, 255, 255, 0),\n        rgba(0, 255, 255, 0.4),\n        rgba(0, 255, 255, 0));\n  }\n\n  .glow-btn-off {\n    background-color: #990000;\n  }\n\n  .glow-btn-off::before {\n    background: linear-gradient(120deg,\n        rgba(255, 165, 0, 0),\n        rgba(255, 200, 100, 0.4),\n        rgba(255, 165, 0, 0));\n  }\n\n  @keyframes shimmer {\n    0% {\n      left: -150%;\n    }\n\n    50% {\n      left: 100%;\n    }\n\n    100% {\n      left: 100%;\n    }\n  }\n\n  .fade-in-up {\n    opacity: 0;\n    transform: translateY(20px);\n    animation: fadeInUp 0.8s ease-out forwards;\n  }\n\n  @keyframes fadeInUp {\n    to {\n      opacity: 1;\n      transform: translateY(0);\n    }\n  }\n\n  html,\n  body {\n    height: auto !important;\n    min-height: 100%;\n    overflow-y: auto;\n    scroll-behavior: smooth;\n  }\n\n  body {\n    margin: 0;\n    padding-bottom: 50px;\n  }\n</style>\n<div class=\"fade-in-up neon-border\">\n  <!-- Nội dung của bạn -->\n</div>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css\">\n\n<!-- Container chính -->\n<div class=\"fade-in-up glow-container\"\n  style=\"font-family: 'Segoe UI', sans-serif; max-width: 380px; margin: auto; padding: 17px; border-radius: 18px;\n            background: linear-gradient(145deg, #1a1a1a, #2c2c2c); box-shadow: 0 6px 14px rgba(0,0,0,0.3); color: #fff;\">\n\n  <!-- Tiêu đề -->\n  <div style=\"padding: 12px; border-radius: 10px; background: #1f1f1f; color: white; font-size: 20px; font-weight: bold;\n              display: flex; align-items: center; justify-content: center; gap: 10px; margin: 5px 0;\n              text-shadow: 0 0 4px rgba(0, 255, 255, 0.6), 0 0 8px rgba(0, 255, 255, 0.4);\">\n    <i class=\"fa-solid fa-plug\"></i> Điều khiển đèn (1 giờ)\n  </div>\n\n  <!-- Thẻ trạng thái -->\n  <div style=\"padding: 12px; border-radius: 10px; background: {{msg.payload.color}}; color: white; font-size: 16px;\n              display: flex; align-items: center; gap: 10px; margin: 16px 0; border: 1px solid rgba(0, 255, 255, 0.3);\n              box-shadow: 0 0 10px rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.1);\">\n    <div style=\"font-size: 24px;\"><i class=\"fa fa-lightbulb-o\"></i></div>\n    <div>\n      <div style=\"font-weight: bold;\">{{msg.payload.label}}</div>\n      <div>Trạng thái: <span style=\"font-weight: 500;\">{{msg.payload.status}}</span></div>\n    </div>\n  </div>\n\n  <!-- Nhập và nút bật/tắt -->\n  <div style=\"display: flex; flex-direction: column; align-items: center;\">\n    <input id=\"deviceInput1\" type=\"number\" min=\"1\" max=\"70\" placeholder=\"Nhập số đèn (1-70)\"\n           style=\"width: 90%; max-width: 300px; padding: 12px; font-size: 16px; border-radius: 10px;\n                  background-color: #2e2e2e; color: #00ffe1; box-shadow: inset 0 0 6px rgba(0,255,225,0.25); margin-bottom: 12px; border: none; outline: none;\">\n    <button id=\"sendBtn1\" class=\"glow-btn glow-btn-on\"\n      style=\"width: 90%; max-width: 300px; padding: 12px; font-size: 16px; border-radius: 10px;\n             background: linear-gradient(90deg, #00c9ff, #92fe9d); color: black; border: none; cursor: pointer;\n             font-weight: bold; letter-spacing: 0.5px; box-shadow: 0 3px 8px rgba(0,0,0,0.2); margin-bottom: 18px;\">\n      <i class=\"fa-solid fa-paper-plane\"></i> Bật đèn\n    </button>\n\n    <input id=\"deviceInput2\" type=\"number\" min=\"1\" max=\"70\" placeholder=\"Nhập số đèn (1-70)\"\n           style=\"width: 90%; max-width: 300px; padding: 12px; font-size: 16px; border-radius: 10px;\n                  background-color: #2e2e2e; color: #00ffe1; box-shadow: inset 0 0 6px rgba(0,255,225,0.25); margin-bottom: 12px; border: none; outline: none;\">\n    <button id=\"sendBtn2\" class=\"glow-btn glow-btn-off\"\n      style=\"width: 90%; max-width: 300px; padding: 12px; font-size: 16px; border-radius: 10px;\n             background: linear-gradient(90deg, #ff9966, #ff5e62); color: black; border: none; cursor: pointer;\n             font-weight: bold; letter-spacing: 0.5px; box-shadow: 0 3px 8px rgba(0,0,0,0.2);\">\n      <i class=\"fa-solid fa-paper-plane\"></i> Tắt đèn\n    </button>\n  </div>\n\n  <!-- Nút khởi động giọng nói -->\n  <div style=\"margin-top: 20px; text-align: center;\">\n    <button id=\"start-btn\" style=\"padding: 14px 28px; font-size: 15px; font-weight: bold;\n      background: linear-gradient(135deg, #00ffe1, #0055ff); color: black; border: none; border-radius: 50px;\n      cursor: pointer; box-shadow: 0 0 12px #00ffe1, 0 0 24px #0055ff; transition: all 0.3s ease;\">\n      🎤 Nhấn để nói\n    </button>\n  </div>\n</div>\n\n<!-- Phần hướng dẫn và kết quả, chỉ chữ viền neon dịu mắt, KHÔNG viền hay background bao ngoài -->\n<div style=\"max-width: 380px; margin: 20px auto 0 auto; font-family: 'Segoe UI', sans-serif; color: white;\">\n\n  <p id=\"voice-guide\" style=\"\n    margin: 0 0 6px 0;\n    font-size: 16px;\n    font-style: italic;\n    text-align: center;\n    text-shadow:\n      0 0 2px #00ffff,\n      0 0 4px #00ffff,\n      0 0 6px #00ffff;\">\n    <i class=\"fa-solid fa-microphone\"></i> Nói: \"Bật đèn 1\" hoặc \"Tắt đèn 2, 3\"\n  </p>\n\n  <p id=\"result\" style=\"\n  margin: 0;\n  font-size: 14px;\n  font-weight: bold;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  text-align: center;\n  color: black;\n  text-shadow:\n    0 0 5px #00ffe1,\n    0 0 10px #00ffe1,\n    0 0 20px #0077ff,\n    0 0 30px #0077ff;\">\n  </p>\n\n</div>\n\n<!-- SCRIPT -->\n<script>\n  (function(scope) {\n  const inputs = [\n    { id: \"deviceInput1\", btn: \"sendBtn1\", topic: \"input1\" },\n    { id: \"deviceInput2\", btn: \"sendBtn2\", topic: \"input2\" }\n  ];\n\n  inputs.forEach(({ id, btn, topic }) => {\n    const input = document.getElementById(id);\n    const button = document.getElementById(btn);\n\n    input.addEventListener(\"focus\", () => {\n      input.style.boxShadow = \"0 0 10px #00ffe1\";\n      input.style.transform = \"scale(1.03)\";\n    });\n\n    input.addEventListener(\"blur\", () => {\n      input.style.boxShadow = \"inset 0 0 6px rgba(0,255,225,0.25)\";\n      input.style.transform = \"scale(1)\";\n    });\n\n    button.addEventListener(\"mouseover\", () => {\n      button.style.transform = \"scale(1.04)\";\n      button.style.boxShadow = \"0 6px 12px rgba(0,0,0,0.35)\";\n    });\n\n    button.addEventListener(\"mouseout\", () => {\n      button.style.transform = \"scale(1)\";\n      button.style.boxShadow = \"0 3px 8px rgba(0,0,0,0.2)\";\n    });\n\n    button.onclick = () => {\n      const value = parseInt(input.value);\n      if (!isNaN(value) && value >= 1 && value <= 70) {\n        scope.send({ payload: value, topic });\n        input.value = \"\"; // 💡 XÓA Ô NHẬP sau khi gửi lệnh\n      } else {\n        alert(\"⚠️ Vui lòng nhập số từ 1 đến 70\");\n      }\n    };\n  });\n\n  const btn = document.getElementById('start-btn');\n  const result = document.getElementById('result');\n  const guide = document.getElementById('voice-guide');\n  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();\n  recognition.lang = 'vi-VN';\n  recognition.interimResults = false;\n\n  btn.addEventListener('click', () => {\n    btn.innerHTML = '🎧 Đang nghe...';\n    btn.style.background = '#000';\n    btn.style.color = '#00ffe1';\n    btn.style.boxShadow = '0 0 10px #00ffe1, 0 0 20px #00ffe1';\n    recognition.start();\n    setTimeout(() => {\n    recognition.stop();\n    }, 6000);\n  });\n\nrecognition.onresult = (event) => {\nconst transcript = event.results[0][0].transcript.toLowerCase();\nguide.style.display = 'none';\nresult.innerHTML = `👉 Bạn nói:\n\"<span style='color: black; font-size: 14px; text-shadow: 0 0 4px #00ffe1, 0 0 8px #0077ff;'>${transcript}</span>\"`;\nbtn.innerHTML = '🎤 Nhấn để nói';\nbtn.style.background = 'linear-gradient(135deg, #00ffe1, #0055ff)';\nbtn.style.color = 'black';\nbtn.style.boxShadow = '0 0 12px #00ffe1, 0 0 24px #0055ff';\n\nconst isBat = transcript.includes(\"bật\");\nconst isTat = transcript.includes(\"tắt\");\n\nconst numbers = transcript.match(/\\d+/g); // tìm tất cả các số\n\nif ((isBat || isTat) && numbers) {\nconst uniqueNumbers = [...new Set(numbers.map(n => parseInt(n)).filter(n => n >= 1 && n <= 70))]; if\n  (uniqueNumbers.length===0) { scope.send({ payload: \"Không có số đèn hợp lệ!\" }); } else {\n  uniqueNumbers.forEach(number=> {\n  scope.send({\n  payload: (isBat ? \"bật \" : \"tắt \") + number,\n  topic: isBat ? \"input3\" : \"input3\"\n  });\n  });\n  }\n  }\n  else if (\n  transcript.includes(\"tắt tất cả\") ||\n  transcript.includes(\"tắt hết\") ||\n  transcript.includes(\"tắt đèn tất cả\") ||\n  transcript.includes(\"tắt đèn hết\")\n  ) {\n  scope.send({ payload: \"ALL_OFF\", topic: \"input3\" });\n  }\n  else if (\n  transcript.includes(\"bật tất cả\") ||\n  transcript.includes(\"bật hết\") ||\n  transcript.includes(\"bật đèn tất cả\") ||\n  transcript.includes(\"bật đèn hết\")\n  ) {\n  scope.send({ payload: \"ALL_ON\", topic: \"input3\" });\n  }\n\n  setTimeout(() => {\n  guide.style.display = 'block';\n  result.innerHTML = '';\n  }, 5700);\n  };\n\n  recognition.onerror = (event) => {\n  result.textContent = `Lỗi: ${event.error}`;\n  btn.innerHTML = '🎤 Nhấn để nói';\n  btn.style.background = 'linear-gradient(135deg, #00ffe1, #0055ff)';\n  btn.style.color = 'black';\n  btn.style.boxShadow = '0 0 12px #00ffe1, 0 0 24px #0055ff';\n  scope.send({ payload: \"Lỗi: \" + event.error });\n  };\n  recognition.onend = () => {\n  btn.innerHTML = '🎤 Nhấn để nói';\n  btn.style.background = 'linear-gradient(135deg, #00ffe1, #0055ff)';\n  btn.style.color = 'black';\n  btn.style.boxShadow = '0 0 12px #00ffe1, 0 0 24px #0055ff';\n  };\n})(scope);\n</script>",
         "storeOutMessages": false,
         "fwdInMessages": false,
         "resendOnRefresh": false,
@@ -3187,7 +3170,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 4300,
+        "x": 4190,
         "y": 1140,
         "wires": [
             [
@@ -3204,14 +3187,14 @@
         "z": "0102ef3a5e2d0b80",
         "g": "d676ed17ad71b119",
         "name": "Lấy số từ giọng nói tắt tất cả",
-        "func": "if (msg.payload === \"ALL_OFF\") {\n    const msgs = [];\n    for (let i = 1; i <= 70; i++) {\n        msgs.push({\n            payload: {\n                device: i,\n                Hour: 1\n            }\n        });\n    }\n    return [msgs]; // Gửi hàng loạt message ra cổng đầu tiên\n}\nreturn [null];\n",
+        "func": "if (msg.payload === \"ALL_OFF\") {\n    const msgs = [];\n    for (let i = 1; i <= 70; i++) {\n        msgs.push({\n            payload: {\n                device: i,\n                Hour: 1\n            }\n        });\n    }\n\n    // Gửi ngay lập tức\n    node.send([msgs]);\n\n    // Sau 30 giây, gửi lại y hệt\n    setTimeout(() => {\n        node.send([msgs]);\n    }, 20000); // 30 giây = 30000 ms\n\n    // Trả về null vì đã dùng node.send()\n    return null;\n}\n\nreturn [null];\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 4610,
+        "x": 4480,
         "y": 1140,
         "wires": [
             [
@@ -3226,14 +3209,14 @@
         "z": "0102ef3a5e2d0b80",
         "g": "d676ed17ad71b119",
         "name": "Lấy số từ giọng nói bật tất cả",
-        "func": "if (msg.payload === \"ALL_ON\") {\n    const msgs = [];\n    for (let i = 1; i <= 70; i++) {\n        msgs.push({\n            payload: {\n                device: i,\n                Hour: 1\n            }\n        });\n    }\n    return [msgs]; // Gửi hàng loạt message ra cổng đầu tiên\n}\nreturn [null];\n",
+        "func": "if (msg.payload === \"ALL_ON\") {\n    const msgs = [];\n    for (let i = 1; i <= 70; i++) {\n        msgs.push({\n            payload: {\n                device: i,\n                Hour: 1\n            }\n        });\n    }\n\n    // Gửi ngay lập tức\n    node.send([msgs]);\n\n    // Gửi lại sau 30 giây\n    setTimeout(() => {\n        node.send([msgs]);\n    }, 20000); // 30 giây = 30000 ms\n\n    // Không return gì vì đã dùng node.send()\n    return null;\n}\n\nreturn [null];\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 4610,
+        "x": 4500,
         "y": 1180,
         "wires": [
             [
@@ -3373,7 +3356,7 @@
         "order": 2,
         "width": 3,
         "height": 1,
-        "format": "<style>\n  .fancy-btn {\n    position: relative;\n    display: inline-block;\n    padding: 12px 28px;\n    font-size: 14px;\n    width: 140px;\n    font-weight: bold;\n    color: white;\n    background: linear-gradient(135deg, #00eaff, #0077ff);\n    border: none;\n    border-radius: 10px;\n    cursor: pointer;\n    overflow: hidden;\n    transition: transform 0.3s ease;\n    /* Đổ bóng ngoài mờ hơn */\n    box-shadow: 0 0 12px rgba(0, 234, 255, 0.3), 0 0 24px rgba(0, 119, 255, 0.25);\n  }\n\n  .fancy-btn:hover {\n    transform: scale(1.05);\n  }\n\n  .fancy-btn::before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: -75%;\n    width: 50%;\n    height: 100%;\n    background: rgba(255, 255, 255, 0.25);\n    transform: skewX(-25deg);\n    animation: sweep 2s infinite;\n  }\n\n  @keyframes sweep {\n    0% {\n      left: -75%;\n    }\n\n    100% {\n      left: 125%;\n    }\n  }\n\n  .fadeout {\n    animation: fadeOutBody 1s forwards;\n  }\n\n  @keyframes fadeOutBody {\n    to {\n      opacity: 0;\n      transform: scale(1.02);\n    }\n  }\n</style>\n\n<div style=\"text-align:center; margin-top: 0;\">\n  <button class=\"fancy-btn\" onclick=\"fadeAndGo()\">THOÁT</button>\n</div>\n\n<script>\n  function fadeAndGo() {\n    document.body.classList.add('fadeout');\n    const audio = new Audio('https://assets.mixkit.co/sfx/download/mixkit-interface-click-1125.mp3');\n    audio.play();\n    setTimeout(() => {\n      window.location.href = \"https://cisat.hcmute.edu.vn/\";\n    }, 1000);\n  }\n</script>",
+        "format": "<style>\n  .fancy-btn {\n    position: relative;\n    display: inline-block;\n    padding: 12px 28px;\n    font-size: 14px;\n    width: 140px;\n    font-weight: bold;\n    color: white;\n    background: linear-gradient(135deg, #00eaff, #0077ff);\n    border: none;\n    border-radius: 10px;\n    cursor: pointer;\n    overflow: hidden;\n    transition: transform 0.3s ease;\n    /* Đổ bóng ngoài mờ hơn */\n    box-shadow: 0 0 12px rgba(0, 234, 255, 0.3), 0 0 24px rgba(0, 119, 255, 0.25);\n  }\n\n  .fancy-btn:hover {\n    transform: scale(1.05);\n  }\n\n  .fancy-btn::before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: -75%;\n    width: 50%;\n    height: 100%;\n    background: rgba(255, 255, 255, 0.25);\n    transform: skewX(-25deg);\n    animation: sweep 2s infinite;\n  }\n\n  @keyframes sweep {\n    0% {\n      left: -75%;\n    }\n\n    100% {\n      left: 125%;\n    }\n  }\n\n  .fadeout {\n    animation: fadeOutBody 1s forwards;\n  }\n\n  @keyframes fadeOutBody {\n    to {\n      opacity: 0;\n      transform: scale(1.02);\n    }\n  }\n</style>\n\n<div style=\"text-align:center; margin-top: 0;\">\n  <button class=\"fancy-btn\" onclick=\"fadeAndGo()\">ĐĂNG XUẤT\"</button>\n</div>\n\n<script>\n  function fadeAndGo() {\n    document.body.classList.add('fadeout');\n    const audio = new Audio('https://assets.mixkit.co/sfx/download/mixkit-interface-click-1125.mp3');\n    audio.play();\n    setTimeout(() => {\n      window.location.href = \"https://node-red-on-render-pgsk.onrender.com/ui/\";\n    }, 1000);\n  }\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -3802,7 +3785,7 @@
             }
         ],
         "x": 590,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             [
                 "c29bd63ccfe74e1c",
@@ -3831,8 +3814,8 @@
         "randomUnits": "seconds",
         "allowrate": false,
         "outputs": 1,
-        "x": 810,
-        "y": 1140,
+        "x": 270,
+        "y": 1100,
         "wires": [
             [
                 "94c4d8b645352138"
@@ -4023,6 +4006,97 @@
                 "fdeea17aba54b763"
             ]
         ]
+    },
+    {
+        "id": "inject_ping",
+        "type": "inject",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Ping mỗi 7 phút",
+        "props": [],
+        "repeat": "420",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payloadType": "date",
+        "x": 2850,
+        "y": 400,
+        "wires": [
+            [
+                "http_ping"
+            ]
+        ]
+    },
+    {
+        "id": "http_ping",
+        "type": "http request",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Ping đến chính app",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://node-red-admin.onrender.com/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 3060,
+        "y": 400,
+        "wires": [
+            [
+                "debug_ping"
+            ]
+        ]
+    },
+    {
+        "id": "debug_ping",
+        "type": "debug",
+        "z": "0102ef3a5e2d0b80",
+        "name": "Kết quả ping",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 3270,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ed96e13f2437c5eb",
+        "type": "mqtt-broker",
+        "name": "HIVEMQ",
+        "broker": "c72907f49eda47f5959d51346e25e4c8.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "true",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "37fcf5bfccf8b220",
