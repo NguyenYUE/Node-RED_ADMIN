@@ -5,10 +5,12 @@
   "description": "Deploy Node-RED on Render.com",
   "main": "index.js",
   "scripts": {
-    "start": "node node_modules/node-red/red.js -s .node-red/settings.js"
+    "start": "node node_modules/node-red/red.js -s settings.js"
   },
   "dependencies": {
     "node-red": "^3.1.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
     "node-red-dashboard": "^3.5.0"
   }
 }
