@@ -1,6 +1,6 @@
 
 {
-  "name": "node-red-on-render",
+  "name": "Node-RED_ADMIN",
   "version": "1.0.0",
   "description": "Deploy Node-RED on Render.com",
   "main": "index.js",
