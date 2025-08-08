@@ -1,11 +1,27 @@
+require('dotenv').config();
+console.log("✅ Đang dùng đúng settings.js có mật khẩu!");
+process.env.MQTT_USERNAME = 'bomgamehcm123';
+process.env.MQTT_PASSWORD = 'Nguyendeptrai123';
 module.exports = {
-    flowFile: 'flows.json', // Flow JSON bạn đang dùng
+    flowFile: 'flows.json',
     uiPort: process.env.PORT || 1880,
 
-    // Để bảo mật nếu bạn muốn thêm sau
-    // adminAuth: null,
+    adminAuth: {
+        type: "credentials",
+        users: [
+            {
+                username: "UTE21146282",
+                password: "$2y$08$Zi46aTUTpUJwIF0p.HldGeJMAwkT3fwRQiZ6lDONfWNfERwDAczB6",
+permissions: "*"
+            }
+        ]
+    },
 
-    functionGlobalContext: {}, // Cho phép dùng biến toàn cục
+    functionGlobalContext: {
+      env: process.env
+
+
+    },
 
     editorTheme: {
         projects: {
@@ -18,6 +34,13 @@ module.exports = {
             level: "info",
             metrics: false,
             audit: false
+        }
+    },
+
+    // ✅ Thêm contextStorage để cho phép lưu biến flow/global vĩnh viễn
+    contextStorage: {
+        default: {
+            module: "localfilesystem"
         }
     }
 };
