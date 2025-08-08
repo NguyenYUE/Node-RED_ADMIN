@@ -6,16 +6,16 @@ module.exports = {
     flowFile: 'flows.json',
     uiPort: process.env.PORT || 1880,
 
-//    adminAuth: {
- //       type: "credentials",
- //       users: [
- //           {
-  //              username: "UTE21146282",
- //               password: "$2y$08$rlDbmp3Z4T8P/IG0VEiri.y0AuSk0Ei4z7dLWTbxEUSPYyqejH0yK",
-//permissions: "*"
- //           }
- //       ]
-//    },
+    adminAuth: {
+        type: "credentials",
+        users: [
+            {
+                username: "USER21146282",
+                password: "$2y$08$rlDbmp3Z4T8P/IG0VEiri.y0AuSk0Ei4z7dLWTbxEUSPYyqejH0yK",
+permissions: "*"
+            }
+        ]
+    },
 
     functionGlobalContext: {
       env: process.env
