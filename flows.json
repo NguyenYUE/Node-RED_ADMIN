@@ -3187,7 +3187,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "d676ed17ad71b119",
         "name": "Lấy số từ giọng nói tắt tất cả",
-        "func": "if (msg.payload === \"ALL_OFF\") {\n    const msgs = [];\n    for (let i = 1; i <= 70; i++) {\n        msgs.push({\n            payload: {\n                device: i,\n                Hour: 1\n            }\n        });\n    }\n\n    // Gửi ngay lập tức\n    node.send([msgs]);\n\n    // Sau 30 giây, gửi lại y hệt\n    setTimeout(() => {\n        node.send([msgs]);\n    }, 20000); // 30 giây = 30000 ms\n\n    // Trả về null vì đã dùng node.send()\n    return null;\n}\n\nreturn [null];\n",
+        "func": "if (msg.payload === \"ALL_OFF\") {\n    const msgs = [];\n    for (let i = 1; i <= 70; i++) {\n        msgs.push({\n            payload: {\n                device: i,\n                Hour: 1\n            }\n        });\n    }\n\n    // Gửi ngay lập tức\n    node.send([msgs]);\n\n    // Không còn gửi lần 2 nữa\n    return null;\n}\n\nreturn [null];\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -3209,7 +3209,7 @@
         "z": "0102ef3a5e2d0b80",
         "g": "d676ed17ad71b119",
         "name": "Lấy số từ giọng nói bật tất cả",
-        "func": "if (msg.payload === \"ALL_ON\") {\n    const msgs = [];\n    for (let i = 1; i <= 70; i++) {\n        msgs.push({\n            payload: {\n                device: i,\n                Hour: 1\n            }\n        });\n    }\n\n    // Gửi ngay lập tức\n    node.send([msgs]);\n\n    // Gửi lại sau 30 giây\n    setTimeout(() => {\n        node.send([msgs]);\n    }, 20000); // 30 giây = 30000 ms\n\n    // Không return gì vì đã dùng node.send()\n    return null;\n}\n\nreturn [null];\n",
+        "func": "if (msg.payload === \"ALL_ON\") {\n    const msgs = [];\n    for (let i = 1; i <= 70; i++) {\n        msgs.push({\n            payload: {\n                device: i,\n                Hour: 1\n            }\n        });\n    }\n\n    // Gửi ngay lập tức\n    node.send([msgs]);\n\n    // Không còn gửi lần 2 nữa\n    return null;\n}\n\nreturn [null];\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -4100,7 +4100,6 @@
         "credentials": {
          "user": "bomgamehcm123",
          "password": "Nguyendeptrai123"
-    }
     },
     {
         "id": "37fcf5bfccf8b220",
