@@ -2658,7 +2658,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "x": 4240,
         "y": 660,
         "wires": []
@@ -2722,7 +2722,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "x": 4270,
         "y": 920,
         "wires": []
@@ -2990,7 +2990,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 4080,
+        "x": 4150,
         "y": 1080,
         "wires": [
             [
@@ -3015,7 +3015,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "x": 4780,
         "y": 820,
         "wires": []
@@ -3234,7 +3234,7 @@
         "topic": "STATUS_21146282",
         "qos": "0",
         "datatype": "auto",
-        "broker": "37fcf5bfccf8b220",
+        "broker": "ed96e13f2437c5eb",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -4096,10 +4096,7 @@
         "willPayload": "",
         "willMsg": {},
         "userProps": "",
-        "sessionExpiry": "",
-        "credentials": { 
-         "user": "bomgamehcm123",
-         "password": "Nguyendeptrai123"}
+        "sessionExpiry": ""
     },
     {
         "id": "37fcf5bfccf8b220",
