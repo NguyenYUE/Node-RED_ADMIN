@@ -1,6 +1,6 @@
 
 {
-  "name": "Node-RED_ADMIN",
+  "name": "Render_node_red",
   "version": "1.0.0",
   "description": "Deploy Node-RED on Render.com",
   "main": "index.js",
@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "node-red": "^3.1.0",
-    "bcryptjs": "^2.4.3",
+    "node-red-contrib-bcrypt": "~0.1.6",
     "dotenv": "^16.3.1",
-    "node-red-dashboard": "^3.5.0"
+    "node-red-dashboard": "^3.5.0",
+    "node-red-contrib-qrcode-generator": "^0.4.0"
+
   }
 }
